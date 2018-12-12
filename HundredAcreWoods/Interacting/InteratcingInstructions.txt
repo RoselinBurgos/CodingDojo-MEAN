@@ -1,0 +1,7 @@
+Now that a player is able to walk around our map of the Hundred Acre Wood, 
+let's make the game a little more interesting by giving the characters in the homes a chance to speak. 
+
+Add a greet method to each of the home objects in your code and invoke them whenever the player visits a home.
+Adjust the move function so that it invokes the greet method of the player's location
+
+Start game by: move("north")

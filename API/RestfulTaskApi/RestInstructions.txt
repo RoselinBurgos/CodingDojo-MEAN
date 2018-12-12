@@ -1,0 +1,9 @@
+Restful Task API
+Using your new knowledge of 'Restful Routing', create an application with endpoints (routing rules) 
+which offer CRUD operations for 'tasks'. We should be able to use this API for the following commands:
+
+GET: Retrieve all Tasks
+GET: Retrieve a Task by ID
+POST: Create a Task
+PUT: Update a Task by ID
+DELETE: Delete a Task by ID

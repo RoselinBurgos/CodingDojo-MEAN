@@ -1,0 +1,26 @@
+<html>
+
+<style>
+
+    body
+    {
+        background-color: lightblue;
+    }
+
+</style>
+<body>
+    <a href ="/cats">BACK</a>
+    <h1>Dexter</h1>
+
+    <img src="<%= cats[1].image %>" style="width:350px;height:200px;"/>
+    <h3>Favorite Food: <%= cats[1].food %></h3>
+    <h3>Age: <%= cats[1].age %></h3>
+
+    <h3>Sleeping:</h3> 
+    <% for (var c in cats) { %>
+        <h3><%= cats[1].sleeping[c] %></h3>
+    <% } %>
+
+
+</body>
+</html>

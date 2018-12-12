@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia</title>
+
+<style>
+.whole
+{
+    height: 700px;
+    width: 1000px;
+
+}
+
+.block
+{
+    width: 200px;
+    height: 300px;
+    background-image: linear-gradient(-90deg, yellow, pink);
+    display: inline-block;
+    border-width: 5px;
+    border: solid;
+    vertical-align: top;
+    padding-left: 5px;
+    
+}
+
+
+</style>
+
+</head>
+<body>
+    <h1>TRIVIA NIGHT </h1>
+    <div class ="whole">
+        <div class = "block 1">CLICK</div>
+        <div class = "block 2">CLICK</div>
+        <div class = "block 3">CLICK</div>
+        <br>
+        <div class = "block 4">CLICK</div>
+        <div class = "block 5">CLICK</div>
+        <div class = "block 6">CLICK</div>
+        <br>
+        <div class = "block 7">CLICK</div>
+        <div class = "block 8">CLICK</div>
+        <div class = "block 9">CLICK</div>
+
+    </div>
+    
+</body>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+
+<script>
+var info;
+$.get("https://opentdb.com/api.php?amount=9&difficulty=easy&type=multiple", trivia)
+function trivia(data) {
+    info = data.results;
+    console.log(data);
+}
+// <!-- TOP ROW -->
+
+    $( ".1" ).click(function() {
+    $('.1').html('<p>' + info[0].question+ '</p> <p>'+ info[0].incorrect_answers[0]+'</p> <p>'+ info[0].incorrect_answers[1]+'</p> <p>'+info[0].incorrect_answers[2]+'</p> <p>'+info[0].correct_answer+'</p>' );
+      });
+
+    $( ".2" ).click(function() {
+    $('.2').html('<p>' + info[1].question+ '</p> <p>'+ info[1].incorrect_answers[0]+'</p> <p>'+ info[1].incorrect_answers[1]+'</p> <p>'+info[1].incorrect_answers[2]+'</p> <p>'+info[1].correct_answer+'</p>' );
+      });
+
+    $( ".3" ).click(function() {
+    $('.3').html('<p>' + info[2].question+ '</p> <p>'+ info[2].incorrect_answers[0]+'</p> <p>'+ info[2].incorrect_answers[1]+'</p> <p>'+info[2].incorrect_answers[2]+'</p> <p>'+info[2].correct_answer+'</p>' );
+      });
+
+// <!-- MIDDLE ROW -->
+    $( ".4" ).click(function() {
+    $('.4').html('<p>' + info[3].question+ '</p> <p>'+ info[3].correct_answer+'</p> <p>'+ info[3].incorrect_answers[0]+'</p> <p>'+info[3].incorrect_answers[1]+'</p> <p>'+info[3].incorrect_answers[2]+'</p>' );
+      });
+
+    $( ".5" ).click(function() {
+    $('.5').html('<p>' + info[4].question+ '</p> <p>'+ info[4].correct_answer+'</p> <p>'+ info[4].incorrect_answers[0]+'</p> <p>'+info[4].incorrect_answers[1]+'</p> <p>'+info[4].incorrect_answers[2]+'</p>' );
+      });
+
+    $( ".6" ).click(function() {
+    $('.6').html('<p>' + info[5].question+ '</p> <p>'+ info[5].correct_answer+'</p> <p>'+ info[5].incorrect_answers[0]+'</p> <p>'+info[5].incorrect_answers[1]+'</p> <p>'+info[5].incorrect_answers[2]+'</p>' );
+      });
+
+// <!-- BOTTOM ROW -->
+    $( ".7" ).click(function() {
+    $('.7').html('<p>' + info[6].question+ '</p> <p>'+ info[6].incorrect_answers[0]+'</p> <p>'+ info[6].incorrect_answers[1]+'</p> <p>'+info[6].incorrect_answers[2]+'</p> <p>'+info[6].correct_answer+'</p>' );
+      });
+
+    $( ".8" ).click(function() {
+    $('.8').html('<p>' + info[7].question+ '</p> <p>'+ info[7].incorrect_answers[0]+'</p> <p>'+ info[7].incorrect_answers[1]+'</p> <p>'+info[7].incorrect_answers[2]+'</p> <p>'+info[7].correct_answer+'</p>' );
+      });
+
+    $( ".9" ).click(function() {
+    $('.9').html('<p>' + info[8].question+ '</p> <p>'+ info[8].incorrect_answers[0]+'</p> <p>'+ info[8].incorrect_answers[1]+'</p> <p>'+info[8].incorrect_answers[2]+'</p> <p>'+info[8].correct_answer+'</p>' );
+      });
+
+
+
+
+
+</script>
+
+
+</html>

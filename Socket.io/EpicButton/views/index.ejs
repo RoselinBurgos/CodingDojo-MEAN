@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>The Epic Number Game</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+
+        <script type ="text/javascript">
+
+            $(document).ready(function (){
+
+            var socket  = io.connect();
+        
+            socket.on('user', function(data){
+                $('#count').html(`<p>${data.count}</p>`);
+
+            });
+        
+            // when #add is clicked the client emits button_pushed
+            $(`#add`).click(function(){
+            socket.emit(`button_pushed`);
+            });
+
+            // the client is listening for count_add and when it hears it updates the html of #count is updated to reflect the count change
+            socket.on('count_add', function(data){
+            $('#count').html(`<p>${data.count}</p>`);
+            });
+
+            // when #reset is clicked the client emits reset
+            $('#reset').on('click', function() {
+            socket.emit('reset');
+            });
+
+            // the client is listening for reset_count and when it hears it updates the html of #count is updated to reflect the count change
+            socket.on('reset_count', function(data) {
+            $('#count').html(`<p>${data.count}</p>`);
+            })
+        });
+
+        </script>        
+    </head>
+
+    <style>
+
+        body
+        {
+            background-color: lightseagreen;
+            color: white;
+        }
+
+        .box
+        {
+            margin-left: 20%;
+            margin-top: 30px;
+        }
+
+        .center
+        {
+           
+        }
+
+        .num
+        {
+            margin-left: 210px;
+            font-size: 50px;
+            
+        }
+    </style>
+    <body>
+        <div class="box">
+        
+        
+        <h1>The Button has been pushed</h1>
+
+            <div class="num">
+            <div id="count"></div>time(s)<br>
+            </div>
+        
+
+        <h3>Push the button to update the count!</h3>
+        <button id="add" class="btn btn-outline-light"> PUSH THE EPIC BUTTON!</button> 
+        <br>
+        <br>
+        <button id ="reset" class="btn btn-outline-light"> Reset Count</button>
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    </body>
+</html>

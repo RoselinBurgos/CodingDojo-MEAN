@@ -1,0 +1,2 @@
+Use this open trivia API found here https://opentdb.com/api_config.php to build a trivia game.
+Display the questions and the possible answers.

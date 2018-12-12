@@ -1,0 +1,38 @@
+<html>
+
+<style>
+    body
+    {
+        background-color: lightseagreen;
+    }
+
+    h1
+    {
+        color: ghostwhite;
+    }
+
+    h3
+    {
+        color: ghostwhite;
+    }
+
+</style>
+<body>
+    <a href ="/cats">BACK</a>
+    <h1>Details for Jax</h1>
+
+   
+        <img src="<%= cats[0].image %>" style="width:350px;height:200px;"/>
+        <h3>Favorite Food: <%= cats[0].food %></h3>
+        <h3>Age: <%= cats[0].age %></h3>
+        <h3>Sleeping:</h3> 
+        <% for (var c in cats) { %>
+            <h3><%= cats[0].sleeping[c] %></h3>
+        <% } %>
+        
+   
+
+
+
+</body>
+</html>
